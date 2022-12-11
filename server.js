@@ -3,14 +3,15 @@ const bodyParser = require("body-parser");
 const EmployeeRouter = require("./routes/employeesRoutes");
 const app = express();
 const mongoose = require("mongoose");
-// importation du cors 
+// importation du cors
 const cors = require("cors");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// implementation du cors 
+// implementation du cors
 app.use(cors());
 app.use("/employees", EmployeeRouter);
 
+//ca cest la laison mongodb
 mongoose
   .connect(
     "mongodb+srv://hichem:hichem123@cluster0.p4yzy21.mongodb.net/?retryWrites=true&w=majority"
@@ -19,4 +20,4 @@ mongoose
     console.log("base de donnes connecté");
   });
 
-app.listen(5000, () => console.log("serveur en marche"));
+app.listen(5000, () => console.log("serveur fonctionne"));
